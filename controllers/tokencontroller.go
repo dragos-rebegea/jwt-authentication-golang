@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"jwt-authentication-golang/auth"
-	"jwt-authentication-golang/database"
-	"jwt-authentication-golang/models"
 	"net/http"
+
+	"github.com/dragos-rebegea/jwt-authentication-golang/auth"
+	"github.com/dragos-rebegea/jwt-authentication-golang/database"
+	"github.com/dragos-rebegea/jwt-authentication-golang/models"
 
 	"github.com/gin-gonic/gin"
 )
@@ -38,7 +39,7 @@ func GenerateToken(context *gin.Context) {
 		return
 	}
 
-	tokenString, err:= auth.GenerateJWT(user.Email, user.Username)
+	tokenString, err := auth.GenerateJWT(user.Email, user.Username)
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		context.Abort()

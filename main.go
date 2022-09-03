@@ -1,9 +1,9 @@
 package main
 
 import (
-	"jwt-authentication-golang/controllers"
-	"jwt-authentication-golang/database"
-	"jwt-authentication-golang/middlewares"
+	"github.com/dragos-rebegea/jwt-authentication-golang/controllers"
+	"github.com/dragos-rebegea/jwt-authentication-golang/database"
+	"github.com/dragos-rebegea/jwt-authentication-golang/middlewares"
 
 	"github.com/gin-gonic/gin"
 )

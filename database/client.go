@@ -1,8 +1,9 @@
 package database
 
 import (
-	"jwt-authentication-golang/models"
 	"log"
+
+	"github.com/dragos-rebegea/jwt-authentication-golang/models"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -11,7 +12,7 @@ import (
 var Instance *gorm.DB
 var dbError error
 
-func Connect(connectionString string) () {
+func Connect(connectionString string) {
 	Instance, dbError = gorm.Open(mysql.Open(connectionString), &gorm.Config{})
 	if dbError != nil {
 		log.Fatal(dbError)

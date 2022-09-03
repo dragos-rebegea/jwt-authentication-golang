@@ -1,9 +1,10 @@
 package controllers
 
 import (
-	"jwt-authentication-golang/database"
-	"jwt-authentication-golang/models"
 	"net/http"
+
+	"github.com/dragos-rebegea/jwt-authentication-golang/database"
+	"github.com/dragos-rebegea/jwt-authentication-golang/models"
 
 	"github.com/gin-gonic/gin"
 )
