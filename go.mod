@@ -1,4 +1,4 @@
-module jwt-authentication-golang
+module github.com/dragos-rebegea/jwt-authentication-golang
 
 go 1.18
 
