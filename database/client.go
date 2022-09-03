@@ -9,19 +9,21 @@ import (
 	"gorm.io/gorm"
 )
 
-var Instance *gorm.DB
-var dbError error
-
-func Connect(connectionString string) {
-	Instance, dbError = gorm.Open(mysql.Open(connectionString), &gorm.Config{})
+func Connect(connectionString string) (*gorm.DB, error) {
+	instance, dbError := gorm.Open(mysql.Open(connectionString), &gorm.Config{})
 	if dbError != nil {
 		log.Fatal(dbError)
-		panic("Cannot connect to DB")
+		return nil, dbError
 	}
 	log.Println("Connected to Database!")
+	return instance, nil
 }
 
-func Migrate() {
-	Instance.AutoMigrate(&models.User{})
+func Migrate(instance *gorm.DB) error {
+	err := instance.AutoMigrate(&models.User{})
+	if err != nil {
+		return err
+	}
 	log.Println("Database Migration Completed!")
+	return nil
 }
